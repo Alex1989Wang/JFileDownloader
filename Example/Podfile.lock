@@ -1,0 +1,16 @@
+PODS:
+  - JFileDownloader (0.1.0)
+
+DEPENDENCIES:
+  - JFileDownloader (from `../`)
+
+EXTERNAL SOURCES:
+  JFileDownloader:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JFileDownloader: 8ff9c572cf07cf6cd392479e95fca50d2049fca6
+
+PODFILE CHECKSUM: 7da651fe45e2f916f8819cd128f50fcab74ecf37
+
+COCOAPODS: 1.5.3

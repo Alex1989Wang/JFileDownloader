@@ -1,0 +1,22 @@
+{
+  "name": "JFileDownloader",
+  "version": "0.1.0",
+  "summary": "A short description of JFileDownloader.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/wangjiang-camera360/JFileDownloader",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wangjiang-camera360": "alex1989wang@foxmail.com"
+  },
+  "source": {
+    "git": "https://github.com/wangjiang-camera360/JFileDownloader.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "JFileDownloader/Classes/**/*"
+}

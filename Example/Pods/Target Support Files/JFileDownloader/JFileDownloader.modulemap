@@ -1,0 +1,6 @@
+framework module JFileDownloader {
+  umbrella header "JFileDownloader-umbrella.h"
+
+  export *
+  module * { export * }
+}
