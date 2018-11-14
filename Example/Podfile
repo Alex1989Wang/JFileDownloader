@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'JFileDownloader_Example' do
+  pod 'JFileDownloader', :path => '../'
+
+  target 'JFileDownloader_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
