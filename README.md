@@ -22,7 +22,7 @@ pod 'JFileDownloader'
 
 ## Author
 
-wangjiang-camera360, alex1989wang@foxmail.com
+alex1989wang@gmail.com
 
 ## License
 

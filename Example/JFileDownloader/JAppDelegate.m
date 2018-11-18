@@ -7,12 +7,18 @@
 //
 
 #import "JAppDelegate.h"
+#import "JMainTableViewController.h"
 
 @implementation JAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    CGRect windowRect = [UIScreen mainScreen].bounds;
+    self.window = [[UIWindow alloc] initWithFrame:windowRect];
+    JMainTableViewController *mainVC = [[JMainTableViewController alloc] init];
+    UINavigationController *naviCon = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    self.window.rootViewController = naviCon;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

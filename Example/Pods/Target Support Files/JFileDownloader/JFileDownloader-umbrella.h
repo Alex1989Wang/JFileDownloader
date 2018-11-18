@@ -1,15 +1,11 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
-#else
-#ifndef FOUNDATION_EXPORT
-#if defined(__cplusplus)
-#define FOUNDATION_EXPORT extern "C"
-#else
-#define FOUNDATION_EXPORT extern
-#endif
-#endif
 #endif
 
+#import "JDownloadDefines.h"
+#import "JFileDownloader.h"
+#import "NSError+JDownloadError.h"
+#import "NSURLSessionDownloadTask+JDownload.h"
 
 FOUNDATION_EXPORT double JFileDownloaderVersionNumber;
 FOUNDATION_EXPORT const unsigned char JFileDownloaderVersionString[];
