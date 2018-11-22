@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JLargeFileDownloadViewController">
             <connections>
+                <outlet property="progressLabel" destination="iXu-fz-28O" id="YWS-DB-9du"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,14 +28,40 @@
                         <action selector="clickToDownload" destination="-1" eventType="touchUpInside" id="z4C-ef-HCN"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fnu-Wt-gvp">
+                    <rect key="frame" x="163.5" y="378.5" width="48" height="30"/>
+                    <state key="normal" title="Cancel"/>
+                    <connections>
+                        <action selector="clickToCancel" destination="-1" eventType="touchUpInside" id="tYn-v1-TdU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kww-BS-nQU">
+                    <rect key="frame" x="160" y="438.5" width="55" height="30"/>
+                    <state key="normal" title="Resume"/>
+                    <connections>
+                        <action selector="clickToResume" destination="-1" eventType="touchUpInside" id="Dyi-Yh-tKU"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXu-fz-28O">
+                    <rect key="frame" x="151" y="147.5" width="73" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="abX-So-0NT" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="5hw-rg-vfI"/>
                 <constraint firstItem="abX-So-0NT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EOn-Fj-nA3"/>
+                <constraint firstItem="Kww-BS-nQU" firstAttribute="top" secondItem="Fnu-Wt-gvp" secondAttribute="bottom" constant="30" id="JMF-9X-64d"/>
+                <constraint firstItem="iXu-fz-28O" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="SOu-TL-lE2"/>
+                <constraint firstItem="Fnu-Wt-gvp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UF0-4T-q2z"/>
+                <constraint firstItem="Fnu-Wt-gvp" firstAttribute="top" secondItem="abX-So-0NT" secondAttribute="bottom" constant="30" id="gGq-AV-hHe"/>
+                <constraint firstItem="abX-So-0NT" firstAttribute="top" secondItem="iXu-fz-28O" secondAttribute="bottom" constant="150" id="w7I-9w-frB"/>
+                <constraint firstItem="Kww-BS-nQU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="waA-P6-KYl"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-402" y="11"/>
+            <point key="canvasLocation" x="-110" y="-1"/>
         </view>
     </objects>
 </document>

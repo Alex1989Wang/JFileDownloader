@@ -8,9 +8,12 @@
 #import <Foundation/Foundation.h>
 #import "JDownloadDefines.h"
 
+@class JFileCache;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JFileDownloader : NSObject
+@property (nonatomic, strong) JFileCache *downloadsCache;
 
 /**
  The shared downloader used to download files.
@@ -23,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
                    progress:(jDownloadProgressBlock)progress
                   succeeded:(jDownloadSuccessBlock)success
                      failed:(jDownloadFailureBlock)failure;
+
+- (void)cancelDownloadUrl:(NSString *)urlString;
 
 @end
 

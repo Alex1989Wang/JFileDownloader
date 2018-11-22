@@ -6,6 +6,7 @@
 //
 
 #import "JFileCache.h"
+#import "NSError+JDownloadError.h"
 #import <CommonCrypto/CommonDigest.h>
 
 @interface JFileCache()
@@ -76,6 +77,40 @@
     return cachedUrl;
 }
 
+- (NSURL *)cacheData:(NSData *)fileData forKey:(NSString *)fileKey error:(NSError * _Nullable __autoreleasing *)error {
+    if (!fileKey.length || !fileKey) {
+        NSError *noKey = [NSError j_errorWithDomain:kJDownloadErrorDefaultDomain code:JDownloadErrorCodeNoCacheKey];
+        if (error) {
+            *error = noKey;
+        }
+        return nil;
+    }
+    
+    if (!fileData.length || !fileData) {
+        NSError *noData = [NSError j_errorWithDomain:kJDownloadErrorDefaultDomain code:JDownloadErrorCodeNoCacheData];
+        if (error) {
+            *error = noData;
+        }
+        return nil;
+    }
+    
+    __block NSURL *cachedUrl = nil;
+    dispatch_sync(self.fileIoQueue, ^{
+        NSString *fileName = [self fileNameWithKey:fileKey];
+        NSString *filePath = [self.cacheDirectory stringByAppendingPathComponent:fileName];
+        //create cache directory if needed.
+        if (![self.fileManager fileExistsAtPath:self.cacheDirectory]) {
+            [self.fileManager createDirectoryAtPath:self.cacheDirectory
+                        withIntermediateDirectories:YES
+                                         attributes:nil
+                                              error:error];
+        }
+        BOOL cached = [fileData writeToFile:filePath atomically:YES];
+        cachedUrl = (cached) ? [NSURL URLWithString:filePath] : nil;
+    });
+    return cachedUrl;
+}
+
 - (BOOL)fileExistsForKey:(NSString *)fileKey {
     __block BOOL cached = NO;
     if (!fileKey || fileKey.length == 0) {
@@ -102,6 +137,15 @@
         fileUrl = [self.fileManager fileExistsAtPath:filePath] ? [NSURL fileURLWithPath:filePath] : nil;
     });
     return fileUrl;
+}
+
+- (void)clearCache {
+    NSString *cachePath = self.cacheDirectory;
+    NSError *clearError = nil;
+    [self.fileManager removeItemAtPath:cachePath error:&clearError];
+    if (clearError) {
+        NSLog(@"%@ clear cache error: %@", NSStringFromClass([JFileCache class]), clearError);
+    }
 }
 
 #pragma mark - Private

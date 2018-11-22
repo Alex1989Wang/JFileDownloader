@@ -9,6 +9,7 @@
 
 extern NSString *kJDownloadErrorDefaultDomain;
 extern NSString *kJDownloadErrorNetworkDomain;
+extern NSString *kJDownloadErrorCacheDomain;
 
 typedef NS_ENUM(NSUInteger, JDownloadErrorCode) {
     //default domain
@@ -16,6 +17,10 @@ typedef NS_ENUM(NSUInteger, JDownloadErrorCode) {
     
     //network domain
     JDownloadErrorCodeNilURL = 200000,
+    
+    //cache domain
+    JDownloadErrorCodeNoCacheKey = 300000,
+    JDownloadErrorCodeNoCacheData = 300001,
 };
 
 NS_ASSUME_NONNULL_BEGIN
@@ -28,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param code error code
  @return error instance
  */
-+ (instancetype)errorWithCode:(JDownloadErrorCode)code;
++ (instancetype)j_errorWithCode:(JDownloadErrorCode)code;
 
 /**
  create a JDownloadError instance
@@ -37,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param code error code
  @return error instance
  */
-+ (instancetype)errorWithDomain:(NSErrorDomain)domain code:(JDownloadErrorCode)code;
++ (instancetype)j_errorWithDomain:(NSErrorDomain)domain code:(JDownloadErrorCode)code;
 
 @end
 

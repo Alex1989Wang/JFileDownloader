@@ -10,7 +10,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JFileCache : NSObject
-
 /**
  create a file cache instance
 
@@ -31,9 +30,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (NSURL *)cacheFileAtPath:(NSString *)originalPath forKey:(NSString *)fileKey error:(NSError **)error;
+- (NSURL *)cacheData:(NSData *)fileData forKey:(NSString *)fileKey error:(NSError **)error;
 - (BOOL)fileExistsForKey:(NSString *)fileKey;
 
 - (NSURL *)cachedFileForKey:(NSString *)fileKey;
+
+- (void)clearCache;
 
 @end
 
